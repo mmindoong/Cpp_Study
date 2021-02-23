@@ -1,54 +1,42 @@
-#include<iostream>
-#include<map>
-#include<string>
-
+#include <iostream>
+#include <string>
 using namespace std;
 
-int main(void) {
-
-    map<char, int> m;
+int main()
+{
+    int alpha[26] = { 0, };
     string str;
-
+    int max = 0;
     cin >> str;
 
-    char key;
-    map<char, int>::iterator iter;
-
-
-    for (int i = 0; i < str.size(); i++) {
-        if (str[i] >= 'a') {
-            str[i] -= ('a' - 'A');
-        }
-
-        iter = m.find(str[i]);
-
-        if (iter != m.end()) {        //�����Ҷ�
-            m[iter->first] += 1;
-        }
-        else {                      //�������� ������
-            m[str[i]] = 1;
-        }
-
+    for (int i = 0; i < str.length(); i++) //alpha배열에서 알파벳 개수 세기
+    {
+        alpha[toupper(str[i]) - 'A']++;
     }
 
-    map<char, int>::iterator max_iter = m.begin();
-    iter = m.begin()++;
-    for (; iter != m.end(); iter++) {
-        if (max_iter->second < iter->second) {
-            max_iter = iter;
+    int max_index = 0; //alpha 배열에서 가장 큰 값 저장
+    for (int i = 0; i < 26; i++)
+    {
+        if (alpha[i] > max)
+        {
+            max = alpha[i];
+            max_index = i;
         }
     }
 
-  
-    for (iter = m.begin(); iter != m.end(); iter++) {
-        if (max_iter->second == iter->second && max_iter->first != iter->first) {
-            cout << "?";
+    int count = 0; //가장 큰 값을 갖는 알파벳이 중복되면 ?출력
+    for (int i = 0; i < 26; i++)
+    {
+        if (alpha[i] == max)
+            count++;
+        if (count >= 2)
+        {
+            cout << "?" << endl;
             return 0;
-        }
+            }
     }
-    cout << max_iter->first;
 
+    cout << (char)(max_index + 65) << endl; //문자열로 변환
     return 0;
 }
-
 
