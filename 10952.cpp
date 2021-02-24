@@ -1,19 +1,17 @@
 #include <iostream>
-
 using namespace std;
 
 int main()
 {
+	int t;
+	int a, b;
 
-	while (true)
+	cin >> t;
+	
+	for (int i = 0; i < t; i++)
 	{
-		int a, b;
 		cin >> a >> b;
-
-		if (a == 0 && b == 0)
-			break;
-		cout << a + b << "\n";
+		cout << a + b << endl;
 	}
-
 	return 0;
 }
