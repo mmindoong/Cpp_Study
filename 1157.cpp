@@ -9,12 +9,12 @@ int main()
     int max = 0;
     cin >> str;
 
-    for (int i = 0; i < str.length(); i++) //alphaë°°ì—´ì—ì„œ ì•ŒíŒŒë²³ ê°œìˆ˜ ì„¸ê¸°
+    for (int i = 0; i < str.length(); i++) //alpha¹è¿­¿¡¼­ ¾ËÆÄºª °³¼ö ¼¼±â
     {
         alpha[toupper(str[i]) - 'A']++;
     }
 
-    int max_index = 0; //alpha ë°°ì—´ì—ì„œ ê°€ì¥ í° ê°’ ì €ì¥
+    int max_index = 0; //alpha ¹è¿­¿¡¼­ °¡Àå Å« °ª ÀúÀå
     for (int i = 0; i < 26; i++)
     {
         if (alpha[i] > max)
@@ -24,7 +24,7 @@ int main()
         }
     }
 
-    int count = 0; //ê°€ì¥ í° ê°’ì„ ê°–ëŠ” ì•ŒíŒŒë²³ì´ ì¤‘ë³µë˜ë©´ ?ì¶œë ¥
+    int count = 0; //°¡Àå Å« °ªÀ» °®´Â ¾ËÆÄºªÀÌ Áßº¹µÇ¸é ?Ãâ·Â
     for (int i = 0; i < 26; i++)
     {
         if (alpha[i] == max)
@@ -33,10 +33,9 @@ int main()
         {
             cout << "?" << endl;
             return 0;
-            }
+        }
     }
 
-    cout << (char)(max_index + 65) << endl; //ë¬¸ìì—´ë¡œ ë³€í™˜
+    cout << (char)(max_index + 65) << endl; //¹®ÀÚ¿­·Î º¯È¯
     return 0;
 }
-
